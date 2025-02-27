@@ -1,4 +1,4 @@
-import React, { LegacyRef } from "react"
+
 
 interface Inputprops{
     placeholder?:string,
