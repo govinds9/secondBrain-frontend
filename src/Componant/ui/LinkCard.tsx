@@ -76,7 +76,7 @@ const LinkCard = (props:{
       <div className="flex items-center justify-between border border-gray-300 rounded-lg p-2">
         <input
           type="text"
-          value={`http://localhost:5173/brainshare/:${props.id}`}
+          value={`https://secondbrainit.netlify.app/brainshare/:${props.id}`}
           readOnly
           className="w-full tracking-tighter bg-transparent outline-none md:text-xl text-sm"
         />
