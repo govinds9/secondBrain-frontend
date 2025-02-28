@@ -16,7 +16,7 @@ const LinkCard = (props:{
     const setUser = useSetRecoilState(user)
 
     const copyToClipboard = () => {
-        navigator.clipboard.writeText(`http://localhost:5173/brainshare/:${props.id}`);
+        navigator.clipboard.writeText(`https://secondbrainit.netlify.app/brainshare/:${props.id}`);
         alert('Link copied to clipboard!');
       };
       const handleCreate = async ()=>{
