@@ -8,10 +8,13 @@ import Spinner from "./Spinner";
 import { useSetRecoilState } from "recoil";
 import { contents } from "../../store/store";
 
+
+
 const Card = (props:{
   data:DataItem,
   deleteoption:boolean
 }) => {
+  
   const [deleteload,setDeleteload] = useState<boolean>(false)
   const setContent = useSetRecoilState(contents)
   const formatDate = (isoString: string): string => {
@@ -72,18 +75,20 @@ const Card = (props:{
     }
  }
   return (
-    <div className={` flex flex-col gap-3  m-2 rounded-xl p-3  bg-white   sm:w-[20rem]  w-11/12  h-96 border-2  border-gray-200  relative   `}>
+    <div className={` flex flex-col gap-2  m-2 rounded-xl p-3  bg-white   sm:w-[20rem]  w-11/12  h-96 border-2  border-gray-200  relative   `}>
       <div className=" flex w-full items-center justify-between">
-        <div className=" flex items-center tracking-tight font-semibold gap-2  text-gray-600 cursor-pointer hover:text-red-500 ">
+       <a href={props.data.link} target="_blank"> <div className=" flex items-center tracking-tight font-semibold gap-2  text-gray-600 cursor-pointer hover:text-red-500 ">
           <Icons name={props.data.type} />
           <span className=" text-slate-800">{props.data.title}</span>
         </div>
+
+       </a>
        { props.deleteoption ?<div onClick={()=>handleDelete(props.data._id)}  className=" text-gray-600 cursor-pointer hover:text-red-600">
           {deleteload?<Spinner/>:<Icons name="delete" />}
         </div>:null}
       </div>
       
-      <Frame type={props.data.type} link={props.data.link}/>
+     { props.data.type ==="document" || "links"?<Frame type={props.data.type} link={props.data.link} description={props.data.description} image={props.data.image} />:<Frame type={props.data.type} link={props.data.link}  />}
         
      
       <div className=" flex  w-full flex-wrap gap-2 ">

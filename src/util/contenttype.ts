@@ -19,6 +19,8 @@ interface Tag {
     userId: User;
     tags: Tag[];
     __v: number;
+    description?:string,
+    image?:string
   }
   
   export type DataArray = DataItem[];
